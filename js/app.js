@@ -144,14 +144,11 @@ function showTotals(){
 
 // remove items from cart
 (function() {
-    
+    const removeBtn = document.querySelector('#clear-cart');
+    removeBtn.addEventListener('click', function(event) {
         const cartItems = document.querySelectorAll('.cart-item');
         cartItems.forEach((item) => {
-            const removeBtn = document.querySelector('cart-item-remove');
-    removeBtn.addEventListener('click', function(event) {
-        item.remove();
-        alert('Item is removed');
-            }
+           }
             item.innerHTML = "";
         });
         showTotals();
