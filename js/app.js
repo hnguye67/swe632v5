@@ -140,6 +140,74 @@ function showTotals(){
     })
 
 })();
+
+(function () {
+    const removeBtn = document.querySelector('#clear-cart');
+    removeBtn.addEventListener('click', function(event) {
+        const cartItems = document.querySelectorAll('.cart-item');
+        cartItems.forEach((item) => {
+            item.innerHTML = "";
+        });
+        showTotals();
+    });
+    function showTotals(){
+
+        const total = [];
+        const items = document.querySelectorAll('.cart-item-price');
+        items.forEach(function(item){
+            total.push(parseFloat(item.textContent));
+        })
+        
+        const totalMoney = total.reduce(function(total, item){
+            total += item;
+            return total;
+        },0);
+    
+        const finalMoney = totalMoney.toFixed(2);
+        
+        document.getElementById('cart-total').textContent = finalMoney;
+        document.querySelector('.item-total').textContent = finalMoney;
+        document.getElementById('item-count').textContent = total.length;
+    }
+})();
+
+(function(){
+
+    const validCoupon = "50off"
+    
+    const couponBtn = document.querySelectorAll('.coupon-box')
+    couponBtn.forEach(function(btn){
+        btn.addEventListener('click', function(event){
+            if(document.querySelector('#couponInput').value.toLowerCase().trim() == validCoupon){
+                showCouponTotals();
+            }
+        }
+        );
+    });
+    
+    // show totals
+    function showCouponTotals(){
+    
+        const total = [];
+        const items = document.querySelectorAll('.cart-item-price');
+        items.forEach(function(item){
+            total.push(parseFloat(item.textContent));
+        })
+        
+        const totalMoney = total.reduce(function(total, item){
+            total += item;
+            return total;
+        },0)/2;
+    
+        const finalMoney = totalMoney.toFixed(2);
+        
+        document.getElementById('cart-total').textContent = finalMoney;
+        document.querySelector('.item-total').textContent = finalMoney;
+        document.getElementById('item-count').textContent = total.length;
+    }
+    
+    })();
+
 //Things learned
 //DOM traversal using previousElementSibling
 //element.insertBefore
