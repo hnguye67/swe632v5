@@ -141,11 +141,17 @@ function showTotals(){
 
 })();
 
-(function () {
+// remove items from cart
+(function() {
     const removeBtn = document.querySelector('#clear-cart');
     removeBtn.addEventListener('click', function(event) {
         const cartItems = document.querySelectorAll('.cart-item');
         cartItems.forEach((item) => {
+            if (item.get("id") == "<%=iDent%>" ))
+            {
+            item.remove();
+                alert('item removed from the cart');
+            }
             item.innerHTML = "";
         });
         showTotals();
