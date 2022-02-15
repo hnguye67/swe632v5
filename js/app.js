@@ -141,14 +141,7 @@ function showTotals(){
 
 })();
 
-const cartItemCount = () => {
-  const cartItems = cartItems.querySelectorAll('.cart-item');
-  let count = 0;
-  items.forEach((item, index) => {
-    count = `${index + 1}`;
-  });
-  itemCount.innerText = count;
-};
+
 // remove items from cart
 (function() {
     
@@ -158,7 +151,6 @@ const cartItemCount = () => {
     removeBtn.addEventListener('click', function(event) {
         item.remove();
         alert('Item is removed');
-        cartItemCount();
             }
             item.innerHTML = "";
         });
