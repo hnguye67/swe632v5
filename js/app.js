@@ -141,16 +141,24 @@ function showTotals(){
 
 })();
 
+const cartItemCount = () => {
+  const cartItems = cartItems.querySelectorAll('.cart-item');
+  let count = 0;
+  items.forEach((item, index) => {
+    count = `${index + 1}`;
+  });
+  itemCount.innerText = count;
+};
 // remove items from cart
 (function() {
-    const removeBtn = document.querySelector('#clear-cart');
-    removeBtn.addEventListener('click', function(event) {
+    
         const cartItems = document.querySelectorAll('.cart-item');
         cartItems.forEach((item) => {
-            if (item.get("id") == "<%=iDent%>" ))
-            {
-            item.remove();
-                alert('item removed from the cart');
+            const removeBtn = document.querySelector('cart-item-remove');
+    removeBtn.addEventListener('click', function(event) {
+        item.remove();
+        alert('Item is removed');
+        cartItemCount();
             }
             item.innerHTML = "";
         });
