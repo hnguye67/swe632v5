@@ -54,7 +54,7 @@ cartBtn.forEach(function(btn){
                     <p id="cart-item-title" class="font-weight-bold mb-0">${item.name}</p>
                     <span>  $</span>
                     <span id="cart-item-price" class="cart-item-price font-weight-bold" class="mb-0">${item.price}</span></div>
-                <a href="#" id='cart-item-remove' class="cart-item-remove"><i class="fas fa-trash"></i></a></div>`;
+                <a href="#" id='cart-item-remove' class="btn-link cart-item-remove"><i class="fas fa-trash"></i></a></div>`;
 
         //select cart
 
@@ -141,14 +141,11 @@ function showTotals(){
 
 })();
 
-
-// remove items from cart
-(function() {
+(function () {
     const removeBtn = document.querySelector('#clear-cart');
     removeBtn.addEventListener('click', function(event) {
         const cartItems = document.querySelectorAll('.cart-item');
         cartItems.forEach((item) => {
-           }
             item.innerHTML = "";
         });
         showTotals();
@@ -172,6 +169,36 @@ function showTotals(){
         document.querySelector('.item-total').textContent = finalMoney;
         document.getElementById('item-count').textContent = total.length;
     }
+})();
+
+(function () {
+
+    document.addEventListener('click',function(e){
+        if(e.target.parentElement.id == 'cart-item-remove'){
+            e.target.parentElement.parentElement.parentElement.innerHTML = "";
+            showTotals();
+         }
+    });
+    function showTotals(){
+
+        const total = [];
+        const items = document.querySelectorAll('.cart-item-price');
+        items.forEach(function(item){
+            total.push(parseFloat(item.textContent));
+        })
+        
+        const totalMoney = total.reduce(function(total, item){
+            total += item;
+            return total;
+        },0);
+    
+        const finalMoney = totalMoney.toFixed(2);
+        
+        document.getElementById('cart-total').textContent = finalMoney;
+        document.querySelector('.item-total').textContent = finalMoney;
+        document.getElementById('item-count').textContent = total.length;
+    }
+    
 })();
 
 (function(){
