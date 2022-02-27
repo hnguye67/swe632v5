@@ -18,6 +18,16 @@
 </head>
 
 <body>
+  <div class="toast-area" id="toasts">
+    <div style="display: none">
+      <div class="toast" id="clonemother">
+        <div class="toast-content">
+        <div class="before"></div>
+        <div class="text"><p class="message"></p></div>
+        </div>
+      </div>
+    </div>
+  </div>
   <!-- header -->
   <header>
     <!-- navbar  -->
@@ -32,7 +42,7 @@
             <h1 class="banner-title">Instant Noodle World</h1>
           </li>
         </ul>
-        <div class="nav-info-items d-none d-lg-flex ">
+        <div class="nav-info-items d-flex d-lg-flex justify-content-between">
           <!-- single info -->
           <div class="nav-info align-items-center d-flex justify-content-between mx-lg-5">
             <span class="info-icon mx-lg-3"><i class="fas fa-phone"></i></span>
@@ -68,7 +78,7 @@
           </div>
           <!--end cart total -->
           <br>
-          <div class="row">
+          <div class="row coupon-area">
             <div class="col-10 mx-auto col-md-12">
               <form>
                 <div class="input-group mb-3">
@@ -107,11 +117,11 @@
       <!--filter buttons -->
       <div class="row">
         <div class=" col-lg-8 mx-auto d-flex justify-content-around my-2 sortBtn flex-wrap">
-          <a href="#" class="type-filter btn btn-outline-secondary btn-black text-uppercase filter-btn m-2 item-text" data-filter="all"> all</a>
+          <a href="#" style="background-color:#ffc525;" class="type-filter btn btn-outline-secondary btn-black text-uppercase filter-btn m-2 item-text" data-filter="all"> all</a>
           <a href="#" class="type-filter btn btn-outline-secondary btn-black text-uppercase filter-btn m-2 item-text" data-filter="noodle">noodle</a>
           <a href="#" class="type-filter btn btn-outline-secondary btn-black text-uppercase filter-btn m-2 item-text" data-filter="protein">protein</a>
           <a href="#" class="type-filter btn btn-outline-secondary btn-black text-uppercase filter-btn m-2 item-text" data-filter="veggie">veggie</a>
-          <a href="#" class="type-filter btn btn-outline-secondary btn-black text-uppercase filter-btn m-2 item-text" data-filter="beverage">beverage</a>
+          <a class="oot-filter btn btn-outline-secondary btn-black text-uppercase filter-btn m-2 item-text" data-filter="beverage">beverage</a>
         </div>
       </div>
       <!-- search box -->
@@ -136,6 +146,7 @@
             <div class="img-container">
               <img src="img/noodle1.jpg" class="card-img-top store-img" alt="">
               <span class="store-item-icon">
+                <span class="tooltiptext">Add to cart</span>
                 <i class="fas fa-shopping-cart"></i>
               </span>
             </div>
@@ -155,6 +166,7 @@
             <div class="img-container">
               <img src="img/noodle2.jpg" class="card-img-top store-img" alt="">
               <span class="store-item-icon">
+                <span class="tooltiptext">Add to cart</span>
                 <i class="fas fa-shopping-cart"></i>
               </span>
             </div>
@@ -174,6 +186,7 @@
             <div class="img-container">
               <img src="img/noodle3.jpg" class="card-img-top store-img" alt="">
               <span class="store-item-icon">
+                <span class="tooltiptext">Add to cart</span>
                 <i class="fas fa-shopping-cart"></i>
               </span>
             </div>
@@ -193,6 +206,7 @@
             <div class="img-container">
               <img src="img/protein1.jpg" class="card-img-top store-img" alt="">
               <span class="store-item-icon">
+                <span class="tooltiptext">Add to cart</span>
                 <i class="fas fa-shopping-cart"></i>
               </span>
             </div>
@@ -212,6 +226,7 @@
             <div class="img-container">
               <img src="img/protein2.jpg" class="card-img-top store-img" alt="">
               <span class="store-item-icon">
+                <span class="tooltiptext">Add to cart</span>
                 <i class="fas fa-shopping-cart"></i>
               </span>
             </div>
@@ -231,6 +246,7 @@
             <div class="img-container">
               <img src="img/protein3.jpg" class="card-img-top store-img" alt="">
               <span class="store-item-icon">
+                <span class="tooltiptext">Add to cart</span>
                 <i class="fas fa-shopping-cart"></i>
               </span>
             </div>
@@ -250,6 +266,7 @@
             <div class="img-container">
               <img src="img/veggie1.jpg" class="card-img-top store-img" alt="">
               <span class="store-item-icon">
+                <span class="tooltiptext">Add to cart</span>
                 <i class="fas fa-shopping-cart"></i>
               </span>
             </div>
@@ -269,6 +286,7 @@
             <div class="img-container">
               <img src="img/veggie2.jpg" class="card-img-top store-img" alt="">
               <span class="store-item-icon">
+                <span class="tooltiptext">Add to cart</span>
                 <i class="fas fa-shopping-cart"></i>
               </span>
             </div>
@@ -288,6 +306,7 @@
             <div class="img-container">
               <img src="img/veggie3.jpg" class="card-img-top store-img" alt="">
               <span class="store-item-icon">
+                <span class="tooltiptext">Add to cart</span>
                 <i class="fas fa-shopping-cart"></i>
               </span>
             </div>
