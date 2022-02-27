@@ -1,5 +1,22 @@
-// show cart
 
+function notification(message){
+    var child = document.getElementById('clonemother');
+    var clone = child.cloneNode(true);
+    var node = document.getElementById("toasts").appendChild(clone);
+    console.log(node.childNodes);
+    setTimeout(function() {
+                  if(node) {
+                    node.childNodes[1].childNodes[3].childNodes[0].innerHTML = message
+                  }
+                },0);
+    setTimeout(function() {
+                  if(node) {
+                    node.style.animation = "toast .5s ease-out forwards";
+                    setTimeout(() => {node.remove();} ,500);
+                  }
+                },2000);
+}
+//Show cart
 (function(){
     //target cart button
     const cartInfo = document.getElementById('cart-info');
@@ -12,8 +29,7 @@
 
 })();
 
-// add items to the cart
-
+//Add items to the cart
 (function(){
 
 const cartBtn = document.querySelectorAll('.store-item-icon');
@@ -56,16 +72,16 @@ cartBtn.forEach(function(btn){
                     <span id="cart-item-price" class="cart-item-price font-weight-bold" class="mb-0">${item.price}</span></div>
                 <a href="#" id='cart-item-remove' class="btn-link cart-item-remove"><i class="fas fa-trash"></i></a></div>`;
 
-        //select cart
-
-        const cart = document.getElementById('cart');
-        const total = document.querySelector('.cart-total-container');
-
-        cart.insertBefore(cartItem, total);
-        alert('item added to the cart');
-
-        showTotals();
-
+            notification("Item has been added to your cart");
+            
+            const cart = document.getElementById('cart');
+            const total = document.querySelector('.cart-total-container');
+            cart.insertBefore(cartItem, total);
+            showTotals();
+            var oldCoupon = document.querySelector('.coupon-text');
+            if(typeof(oldCoupon) != 'undefined' && oldCoupon != null){
+                oldCoupon.remove();
+            };
         }
     });
 });
@@ -92,17 +108,20 @@ function showTotals(){
 }
 
 })();
-    // refactor to get rid of DRY code
-    // Work to get the filter buttons working
+
+//Filter buttons
 (function(){
     const buttons = document.querySelectorAll('.type-filter')
     const storeItems = document.querySelectorAll('.store-item')
-
+    
     buttons.forEach((button)=> {
         button.addEventListener('click', (e) => {
             e.preventDefault()
             const filter = e.target.dataset.filter
-            
+            buttons.forEach((button)=> {
+                button.style.backgroundColor = "transparent"
+            });
+            button.style.backgroundColor = "#ffc525"
             storeItems.forEach((item)=> {
                 if (filter === 'all'){
                     item.style.display = 'block'
@@ -119,7 +138,17 @@ function showTotals(){
 
 })();
 
-//wire up filter search box
+//Filter buttons out of stock
+(function(){
+    document.querySelector('.oot-filter').addEventListener('click',function() {
+        notification("We are currently out of stock!!!")
+      })
+
+})();
+
+
+
+//Filter search
 (function(){
 
     const searchBox = document.querySelector('#search-item')
@@ -129,18 +158,23 @@ function showTotals(){
     
         const searchFilter = e.target.value.toLowerCase().trim()
         //display only items that contain filter input
-
+        var count = 0;
         storeItems.forEach((item) => {
             if (item.textContent.includes(searchFilter)){
-                item.style.display = 'block'
+                item.style.display = 'block';
+                count = count + 1 ;
             } else {
                 item.style.display = 'none'
             }
         })
+        if(count == 0){
+            notification("No items match your search!!!")
+        }
     })
 
 })();
 
+//Clear cart button
 (function () {
     const removeBtn = document.querySelector('#clear-cart');
     removeBtn.addEventListener('click', function(event) {
@@ -168,13 +202,20 @@ function showTotals(){
         document.getElementById('cart-total').textContent = finalMoney;
         document.querySelector('.item-total').textContent = finalMoney;
         document.getElementById('item-count').textContent = total.length;
+        var oldCoupon = document.querySelector('.coupon-text');
+                if(typeof(oldCoupon) != 'undefined' && oldCoupon != null){
+                    oldCoupon.remove();
+                };
     }
 })();
 
+//Remove item trashcan icon
 (function () {
 
     document.addEventListener('click',function(e){
         if(e.target.parentElement.id == 'cart-item-remove'){
+            let item = e.target.parentElement.parentElement.children[1].children[0].textContent;
+            notification(item.toUpperCase()+" has been removed from your cart");
             e.target.parentElement.parentElement.parentElement.innerHTML = "";
             showTotals();
          }
@@ -197,10 +238,15 @@ function showTotals(){
         document.getElementById('cart-total').textContent = finalMoney;
         document.querySelector('.item-total').textContent = finalMoney;
         document.getElementById('item-count').textContent = total.length;
+        var oldCoupon = document.querySelector('.coupon-text');
+                if(typeof(oldCoupon) != 'undefined' && oldCoupon != null){
+                    oldCoupon.remove();
+                };
     }
     
 })();
 
+//Apply coupon
 (function(){
 
     const validCoupon = "50off"
@@ -209,6 +255,15 @@ function showTotals(){
     couponBtn.forEach(function(btn){
         btn.addEventListener('click', function(event){
             if(document.querySelector('#couponInput').value.toLowerCase().trim() == validCoupon){
+                var oldCoupon = document.querySelector('.coupon-text');
+                if(typeof(oldCoupon) != 'undefined' && oldCoupon != null){
+                    oldCoupon.remove();
+                };
+                const couponName = document.createElement('div');
+                couponName.innerHTML = `<a class="coupon-text">Coupon 50OFF is applied !!!</a>`;
+                const cart = document.getElementById('cart');
+                const coupon = document.querySelector('.coupon-area');
+                cart.insertBefore(couponName, coupon.nextSibling);
                 showCouponTotals();
             }
         }
@@ -237,8 +292,3 @@ function showTotals(){
     }
     
     })();
-
-//Things learned
-//DOM traversal using previousElementSibling
-//element.insertBefore
-//reduct method
