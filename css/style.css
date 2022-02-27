@@ -19,6 +19,10 @@ body {
 .item-text {
   font-family: Comic Sans MS, Comic Sans, cursive;
 }
+.coupon-text {
+  font-family: Comic Sans MS, Comic Sans, cursive;
+  color: #00c535 !important;
+}
 /* nav links */
 .navbar-toggler {
   outline: none !important;
@@ -109,6 +113,7 @@ body {
   background: rgb(255, 255, 255);
   width: 0;
   overflow: hidden;
+  z-index: 100;
 }
 .show-cart {
   width: 35%;
@@ -195,17 +200,41 @@ body {
   position: absolute;
   bottom: 0;
   right: 0;
-  padding: 0.75rem;
-  background: var(--mainYellow);
+  padding: 1.0rem;
+  background: var(--mainPink);
   border-top-left-radius: 1rem;
-  transition: all 0.1s ease-in-out;
-  transform: translate(100%, 100%);
+  font-size:24px
 }
+.store-item-icon .tooltiptext {
+  visibility: hidden;
+  width: 160px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  top: 10px;
+  right: 105%;
+  opacity: 0;
+  transition: opacity 1s;
+  font-family: Comic Sans MS, Comic Sans, cursive;
+}
+
+.store-item-icon:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+
+
 .img-container:hover .store-item-icon {
   transform: translate(0, 0);
 }
 .store-item-icon:hover {
   color: var(--mainWhite);
+  background: var(--mainBlack);
 }
 .store-item-value {
   color: --mainYellow;
@@ -269,4 +298,98 @@ body {
   top: 50%;
   right: 0;
   transform: translateX(60%);
+}
+
+.toast {
+  display: flex;
+  justify-content: center;
+  width: 600px;
+  height: 60px;
+  background: #d1d1d1;
+  border-radius: 10px;
+  box-shadow: 1px 7px 14px -5px rgba(0,0,0,0.2);
+  overflow: hidden;
+  animation: slide-in .5s ease-out forwards;
+  position:fixed;
+  z-index:100;
+
+}
+.toast-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+
+
+.text {
+  width: 100%;
+  text-align: center;
+  flex-wrap: wrap;
+  display:flex;
+  margin-left: 0px;
+  font-family: Tahoma,Arial,"Hiragino Sans GB","simsun",sans-serif;
+  font-size: 24px;
+}
+
+.text > * {
+  margin: 0;
+  width: 100%;
+}
+
+p:first-child {
+  font-weight: bold;
+  margin-top: 0px;
+}
+
+.message {
+  margin-top: 0px;
+  font-size:.8em;
+  color: #000000;
+}
+
+.close {
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-end;
+  user-select: none;
+  transform: translate(10px,-5px);
+  font-size: 2.5em;
+/*   transform: scaleX(1.2); */
+  color: #dddddd;
+  cursor:pointer;
+}
+
+@keyframes toast {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(0,-10px);
+    opacity: 0;
+  }
+}
+
+.toast-area {
+  z-index:0;
+  height: 0vh;
+  display: flex;
+  justify-content: center;
+}
+
+.toast-area > * {
+  margin-top: 3em;
+}
+
+
+@keyframes slide-in {
+  0% {
+    transform: translate(0,-10px);
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
