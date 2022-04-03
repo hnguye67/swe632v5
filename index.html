@@ -28,6 +28,9 @@
       </div>
     </div>
   </div>
+  <div href="#" class="cart-float btn" id="cart-float-id">
+    <i class="fa fa-shopping-cart cart-icon"></i>
+  </div>
   <!-- header -->
   <header>
     <!-- navbar  -->
@@ -46,7 +49,7 @@
           <!-- single info -->
           <div class="nav-info align-items-center d-flex justify-content-between mx-lg-5">
             <span class="info-icon mx-lg-3"><i class="fas fa-phone"></i></span>
-            <p class="mb-0">(123) 456-789</p>
+            <p class="mb-0">(123) 456-7890</p>
           </div>
           <!-- end of single info -->
           <!-- single info -->
@@ -64,10 +67,13 @@
       <div class="row max-height justify-content-center align-items-center">
         <div class="col-10 mx-auto banner text-center">
           <h1 class="text-capitalize">welcome to our <strong class="banner-title-big ">Noodle House</strong></h1>
-          <a href="#store" class="btn banner-link-white text-uppercase my-2">explore</a>
+          <a href="#store" class="btn banner-link-white text-uppercase my-2">go to store</a>
 
         </div>
         <div id="cart" class="cart">
+          <div class="btn">
+            <span class="close-icon" id="close-icon-id">+</span>
+          </div>
           <!-- cart item -->
           
           <!--end of  cart item -->
@@ -116,7 +122,8 @@
       <!-- end of section title -->
       <!--filter buttons -->
       <div class="row">
-        <div class=" col-lg-8 mx-auto d-flex justify-content-around my-2 sortBtn flex-wrap">
+        <div class="filter-area col-lg-8 mx-auto d-flex justify-content-around my-2 sortBtn flex-wrap">
+          <a class="filter-text">Shop by Category</a>
           <a href="#" style="background-color:#ffc525;" class="type-filter btn btn-outline-secondary btn-black text-uppercase filter-btn m-2 item-text" data-filter="all"> all</a>
           <a href="#" class="type-filter btn btn-outline-secondary btn-black text-uppercase filter-btn m-2 item-text" data-filter="noodle">noodle</a>
           <a href="#" class="type-filter btn btn-outline-secondary btn-black text-uppercase filter-btn m-2 item-text" data-filter="protein">protein</a>
@@ -346,20 +353,6 @@
 </section>
 
 <!-- end of about us -->
-
-  <!-- modal-container -->
-  <div class="container-fluid ">
-    <div class="row lightbox-container align-items-center">
-      <div class="col-10 col-md-10 mx-auto text-right lightbox-holder">
-        <span class="lightbox-close"><i class="fas fa-window-close"></i></span>
-        <div class="lightbox-item"></div>
-        <span class="lightbox-control btnLeft"><i class="fas fa-caret-left"></i></span>
-        <span class="lightbox-control btnRight"><i class="fas fa-caret-right"></i></span>
-      </div>
-
-    </div>
-  </div>
-
 
   <!-- jquery -->
   <script src="js/jquery-3.3.1.min.js"></script>
