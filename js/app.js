@@ -29,6 +29,33 @@ function notification(message){
 
 })();
 
+//Show cart float icon
+(function(){
+    //target cart button
+    const cartInfo = document.getElementById('cart-float-id');
+    const cart = document.getElementById('cart');
+
+    cartInfo.addEventListener('click', function(){
+        cart.classList.toggle('show-cart');
+    })
+
+
+})();
+
+//Close cart
+(function(){
+    //target cart button
+    const cartInfo = document.getElementById('close-icon-id');
+    const cart = document.getElementById('cart');
+
+    cartInfo.addEventListener('click', function(){
+        cart.classList.toggle('show-cart');
+    })
+
+
+})();
+
+
 //Add items to the cart
 (function(){
 
@@ -265,6 +292,17 @@ function showTotals(){
                 const coupon = document.querySelector('.coupon-area');
                 cart.insertBefore(couponName, coupon.nextSibling);
                 showCouponTotals();
+            };
+            if(document.querySelector('#couponInput').value.toLowerCase().trim() != validCoupon){
+                var oldCoupon = document.querySelector('.coupon-text');
+                if(typeof(oldCoupon) != 'undefined' && oldCoupon != null){
+                    oldCoupon.remove();
+                };
+                const couponName = document.createElement('div');
+                couponName.innerHTML = `<a class="coupon-text coupon-text-wrong">Your coupon is invalid !!!</a>`;
+                const cart = document.getElementById('cart');
+                const coupon = document.querySelector('.coupon-area');
+                cart.insertBefore(couponName, coupon.nextSibling);
             }
         }
         );
