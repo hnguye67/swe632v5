@@ -211,9 +211,8 @@ function showTotals(){
 (function () {
     const removeBtn = document.querySelector('#clear-cart');
     removeBtn.addEventListener('click', function(event) {
-        var confirm = confirm("Are you sure you want to clear everything?");
         const cartItems = document.querySelectorAll('.cart-item');
-        if(confirm) {
+        if(confirm("Are you sure you want to clear everything?")) {
         cartItems.forEach((item) => {
             item.innerHTML = "";
         });
