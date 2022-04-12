@@ -107,7 +107,13 @@ cartBtn.forEach(function(btn){
             showTotals();
             var oldCoupon = document.querySelector('.coupon-text');
             if(typeof(oldCoupon) != 'undefined' && oldCoupon != null){
+                var oldCoupon = document.querySelector('.coupon-text');
                 oldCoupon.remove();
+                const couponName = document.createElement('div');
+                couponName.innerHTML = `<a class="coupon-text coupon-text-wrong">New items added. Please reapply your coupon !!!</a>`;
+                const cart = document.getElementById('cart');
+                const coupon = document.querySelector('.coupon-area');
+                cart.insertBefore(couponName, coupon.nextSibling);
             };
         }
     });
@@ -205,11 +211,14 @@ function showTotals(){
 (function () {
     const removeBtn = document.querySelector('#clear-cart');
     removeBtn.addEventListener('click', function(event) {
+        var confirm = confirm("Are you sure you want to clear everything?");
         const cartItems = document.querySelectorAll('.cart-item');
+        if(confirm) {
         cartItems.forEach((item) => {
             item.innerHTML = "";
         });
         showTotals();
+    };
     });
     function showTotals(){
 
