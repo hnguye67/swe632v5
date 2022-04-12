@@ -51,6 +51,10 @@
             <span class="info-icon mx-lg-3"><i class="fas fa-phone"></i></span>
             <p class="mb-0">(123) 456-7890</p>
           </div>
+          <div class="nav-info align-items-center d-flex justify-content-between mx-lg-5">
+            <span class="info-icon mx-lg-3"><i class="fas fa-calendar-alt"></i></span>
+            <p class="mb-0">Sun-Mon 9AM-5PM</p>
+          </div>
           <!-- end of single info -->
           <!-- single info -->
           <div id="cart-info" class="nav-info align-items-center cart-info d-flex justify-content-between mx-lg-5">
@@ -67,7 +71,10 @@
       <div class="row max-height justify-content-center align-items-center">
         <div class="col-10 mx-auto banner text-center">
           <h1 class="text-capitalize">welcome to our <strong class="banner-title-big ">Noodle House</strong></h1>
-          <a href="#store" class="btn banner-link-white text-uppercase my-2">go to store</a>
+          
+          <h3 class="text-capitalize text-grey" style="padding-top:15px; padding-bottom:30px">Everything you need for a delicious noodle bowl </h3>
+          
+          <a href="#store" class="btn banner-link-yellow">Explore Our Store</a>
 
         </div>
         <div id="cart" class="cart">
@@ -88,17 +95,17 @@
             <div class="col-10 mx-auto col-md-12">
               <form>
                 <div class="input-group mb-3">
+                  <input type="text" class="form-control item-text coupon-input" placeholder='have a promo code...' id="couponInput">
                   <div class="input-group-prepend ">
                     <span class="btn btn-outline-secondary text-uppercase btn-pink coupon-box" id="couponBtn">Apply</span>
                   </div>
-                  <input type="text" class="form-control item-text coupon-input" placeholder='have a promo code...' id="couponInput">
                 </div>
               </form>
             </div>
           </div>
           <!-- cart buttons -->
           <div class="cart-buttons-container mt-3 d-flex justify-content-between">
-            <a href="#" id="clear-cart" class="btn btn-outline-secondary btn-black text-uppercase">clear cart</a>
+            <a href="#" id="clear-cart" class="btn btn-outline-secondary btn-red text-uppercase">clear cart</a>
             <a href="#" class="btn btn-outline-secondary text-uppercase btn-pink">checkout</a>
           </div>
           <!--end of  cart buttons -->
@@ -109,9 +116,11 @@
     <!--end of  banner  -->
   </header>
   <!-- header -->
-
   <!-- store -->
-  <section id="store" class="store py-5">
+  <section id="store" class="store py-0">
+    <div id="scroll-container">
+      <div id="scroll-text">Use promo code 50OFF at checkout to receive 50% off your entire purchase !!!</div>
+    </div>
     <div class="container">
       <!-- section title -->
       <div class="row">
@@ -122,13 +131,13 @@
       <!-- end of section title -->
       <!--filter buttons -->
       <div class="row">
-        <div class="filter-area col-lg-8 mx-auto d-flex justify-content-around my-2 sortBtn flex-wrap">
+        <div class="filter-area col-lg-9 mx-auto d-flex justify-content-around my-2 sortBtn flex-wrap">
           <a class="filter-text">Shop by Category</a>
           <a href="#" style="background-color:#ffc525;" class="type-filter btn btn-outline-secondary btn-black text-uppercase filter-btn m-2 item-text" data-filter="all"> all</a>
           <a href="#" class="type-filter btn btn-outline-secondary btn-black text-uppercase filter-btn m-2 item-text" data-filter="noodle">noodle</a>
           <a href="#" class="type-filter btn btn-outline-secondary btn-black text-uppercase filter-btn m-2 item-text" data-filter="protein">protein</a>
           <a href="#" class="type-filter btn btn-outline-secondary btn-black text-uppercase filter-btn m-2 item-text" data-filter="veggie">veggie</a>
-          <a class="oot-filter btn btn-outline-secondary btn-black text-uppercase filter-btn m-2 item-text" data-filter="beverage">beverage</a>
+          <a class="oot-filter btn btn-outline-secondary btn-black text-uppercase filter-btn m-2 item-text" data-filter="beverage" style="color:rgb(104, 104, 104) !important"><s>beverage</s> (Sold out!)</a>
         </div>
       </div>
       <!-- search box -->
