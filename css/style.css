@@ -15,7 +15,7 @@
   color: var(--mainPink);
 }
 body {
-  font-family: "Kaushan Script", cursive;
+  font-family: Comic Sans MS, Comic Sans, cursive;
   background: var(--mainOrangeLight);
   color: var(--mainBlack);
 }
@@ -93,8 +93,14 @@ body {
   color: var(--mainWhite);
   margin-top: 0rem;
 }
+.banner-store-title {
+  color: #303030;
+  font-size: 3.2rem;
+  text-shadow: 2px 3px 5px var(--mainPink);
+}
+
 .banner-title {
-  color: var(--mainOrangeDark);
+  color: var(--mainPink);
   font-size: 3rem;
 }
 .banner-title-big {
@@ -116,7 +122,6 @@ body {
   color: var(--mainBlack);
   border: 0.2rem solid var(--mainPink);
   background: var(--mainPink);
-  font-weight: 600;
 }
 .banner-link-yellow:hover {
   background: var(--mainBlack);
@@ -159,15 +164,18 @@ body {
 	height:75px;
 	bottom:40px;
 	right:40px;
-	background-color:rgb(29, 175, 0);
-	color:#FFF;
+	background-color:var(--mainPink);
+	color:var(--mainBlack);
 	border-radius:50px;
 	text-align:center;
 	box-shadow: 2px 2px 3px #999;
   z-index:100;
   opacity: 0.9;
 }
-
+.cart-float:hover {
+  background: var(--mainBlack);
+  color: var(--mainWhite);
+}
 .cart-icon{
 	margin-top:20px;
   font-size:24px;
@@ -422,13 +430,15 @@ p:first-child {
   border: 0px solid rgb(255, 251, 0);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 0px;
-  height: 40px;
-  padding-top: 7px;
+  height: 55px;
+  padding-top: 10px;
   overflow: hidden;
   background: var(--mainYellow);
+  margin-bottom: 20px;
 }
 
 #scroll-text {
+  font-size: 22px;
   font-family: Comic Sans MS, Comic Sans, cursive;
   -moz-transform: translateX(100%);
   -webkit-transform: translateX(100%);
